@@ -1,63 +1,69 @@
 # Offers and Store Coupons iPhone
 
-An iPhone-first, offline-capable receipt and coupon tracker.
+An Apple-native receipt, coupon, survey, rebate, fuel-point and return-window system for iPhone 17 Pro.
 
-## Current features
+## Project rule
 
-- Take or upload a receipt photo
-- Save store, offer, expiration date, estimated savings and notes
-- Mark whether the original receipt is required
-- View active offers, offers expiring today, offers expiring within 7 days and redeemed offers
-- Track monthly and all-time savings
-- Export data as CSV
-- Create a JSON backup
-- Export an Apple Calendar event with a two-day alert
-- Install from Safari as a Home Screen web app
-- Continue working offline after the first successful load
+This project uses only apps and services built into iPhone and the Apple ecosystem. No third-party apps, browser databases, external OCR services or outside automation platforms.
 
-## Deploy with GitHub Pages
+## Native app stack
 
-1. Open the repository on GitHub.
-2. Open **Settings > Pages**.
-3. Under **Build and deployment**, choose **Deploy from a branch**.
-4. Select **main** and **/(root)**.
-5. Save and wait for GitHub Pages to publish.
+- **Shortcuts** — automation engine
+- **Reminders** — master offer database and expiration alerts
+- **Photos** — receipt image archive and Live Text
+- **Calendar** — important expiration and return-window events
+- **Notes** — long terms, codes and supporting details
+- **Files / iCloud Drive** — exported PDFs, receipts and backups
+- **Siri** — voice capture and lookup
+- **Spotlight** — system-wide search
+- **Action Button** — one-press receipt capture
+- **Widgets** — expiring-offer dashboard
+- **Mail** — emailed receipts and order confirmations
+- **Wallet** — supported loyalty cards, tickets and passes
 
-Expected site address:
+## Primary workflow
 
-`https://delta9baf-star.github.io/Offers-and-store-coupons-iPhone/`
+1. Press the iPhone Action Button or say **“Siri, save receipt offer.”**
+2. Photograph the receipt.
+3. Shortcuts saves the image to the **Offers & Coupons** Photos album.
+4. Live Text extracts receipt text on-device.
+5. The shortcut asks for or confirms the store, offer, expiration date, value and whether the original receipt is required.
+6. A reminder is created in the **Offers & Coupons** list with the receipt image, tags and alerts.
+7. High-value or long-window items can also be added to Calendar and Files.
 
-## Install on iPhone
+## Recommended Reminders structure
 
-1. Open the published site in Safari.
-2. Tap **Share**.
-3. Tap **Add to Home Screen**.
-4. Name it **Offer Vault** and tap **Add**.
+Create a list named **Offers & Coupons** and use these tags:
 
-## Daily use
+- `#Coupon`
+- `#Survey`
+- `#FuelPoints`
+- `#Rebate`
+- `#Return`
+- `#Warranty`
+- `#ReceiptRequired`
+- `#Restaurant`
+- `#Retail`
 
-1. Open Offer Vault.
-2. Tap **+**.
-3. Photograph or select the receipt.
-4. Enter the store, offer and expiration date.
-5. Add the estimated savings and restrictions.
-6. Save the offer.
-7. Use **Calendar** when you want an Apple Calendar expiration alert.
+Recommended Smart Lists:
 
-## Apple Live Text
+- Expiring Today
+- Expiring in 3 Days
+- Expiring in 7 Days
+- Receipt Required
+- Restaurant Surveys
+- Fuel Points
+- Returns and Rebates
 
-Open the receipt in Photos, use Live Text to copy the printed terms, then paste them into the Notes field. This keeps receipt reading mostly on-device.
+## Project documents
+
+- [Apple-native setup guide](docs/APPLE_NATIVE_SETUP.md)
+- [Save Receipt Offer shortcut specification](docs/SAVE_RECEIPT_OFFER_SHORTCUT.md)
 
 ## Privacy
 
-Offer records and receipt images are stored in Safari IndexedDB on the device. They are not committed to GitHub. Clearing Safari website data can erase local records, so use **Backup JSON** regularly.
+Receipt photos, extracted text and reminders remain inside Apple apps and iCloud according to the user's Apple settings. The system does not require third-party accounts or external receipt-processing services.
 
-## Planned improvements
+## Status
 
-- Automatic receipt text extraction and offer parsing
-- Search and store filters
-- Custom warning intervals
-- Restore from JSON backup
-- Share Sheet and Siri Shortcut workflow
-- Better iPhone photo compression
-- Optional iCloud or private sync
+The earlier web-app prototype is retired as the primary design. Future work will prioritize Apple-native automation, minimal typing and fast capture from the Action Button, Siri and the Share Sheet.
